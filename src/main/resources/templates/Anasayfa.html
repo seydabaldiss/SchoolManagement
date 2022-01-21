@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+    <title>Anasayfa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+
+</head>
+<body style="background: #deded5">
+<div >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">ANASAYFA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/index">ADMİN PANELİ <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/studentlist">ÖĞRENCİ LİSTESİ<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/contact">İLETİŞİM <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/rektor">KURUCUMUZ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/bolum">KADROMUZ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/logout">ÇIKIŞ  <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" >
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="data:image/jpeg;base64,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" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.cumhuriyet.edu.tr/foto/4_5acc56aa4c1225d3dd0ee19c837b95f7.jpg" class="d-block w-100" alt="...">
+
+            </div>
+            <div class="carousel-item">
+                <img src="" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div style="padding: 5%; background-color: lightgray">
+    <div style="width:100% ">
+        <p style="text-align: center;color: #1339ba; font-size: 80px;  "  >BATI KOLEJİ</p>
+        <p style="font-size: larger">Kurucular kurulunun tamamı öğretmendir. Hayatı sınıfta geçmiş, öğrenci yetiştirmeyi sevda edinmiş, birikimini alın teri ile oluşturmuş bir kadrodur. Her biri senelerce Sivas’a hizmet etmiş, binlerce öğrenci yetiştirmiş, Sivaslının yakından tanıdığı, başarısını kanıtlamış eğitimci kadrodur.</p>
+    </div>
+    <div class="row" style="padding-top: 2%">
+        <div class="col-lg-6" style="">
+            <h2 class="text-center" style="color: #1339ba ">Başarılarımız</h2>
+            <p style="font-size: larger">7 yıl gibi kısa bir sürede Sivas'ımızda eğitimin kalitesini ve başarısını yükselten Batı Koleji; 65 Tıp, 50 Hukuk, 350 Mühendislik, 235 Eğitim Fakültesi ve 254 diğer fakülteler olmak üzere toplamda 954 öğrencimizi üniversiteli yapma gururunu ve onurunu yaşadık.</p>
+        </div>
+        <div class="col-lg-6" style="">
+            <h2 class="text-center"  style="color: #1339ba ">Hedeflerimiz</h2>
+            <p style="font-size: larger"> Her aşamadaki öğrencilerimizin kendi seviyelerinde;
+               -Becerili
+               -Saygılı
+               -Başarılı
+               -Sevgi dolu
+               -Özgüvenli
+               -Kaliteli insan olarak yetiştirmektir..</p>
+        </div>
+
+    </div>
+
+        <h1 style="text-align: center;padding-top: 2%;color:  #1339ba;">BİZDEN SİZE</h1>
+
+
+
+    </div>-->
+    <p style="font-size: larger">Biz Türk milleti olarak, insanlığa hizmetimizle, adaletli yönetimimizle, farklı inanç ve kültürlere saygımızla, Adriyatik'ten Yemen'e kadar hiçbir ayrım yapmadan tüm insanlara eşit hizmet anlayışımızla övünülecek bir geçmiş bırakmışsak gelecekte de kendini bilen, dünyayı bilen  ve insanlığa yol gösterme misyonuna sahip bir nesil yetiştirmek istiyoruz.</p>
+    <br><br>
+    <p style="font-size: larger">Bu ideallerimizin de ancak iyi bir eğitimle gerçekleşeceğini çok iyi biliyoruz. Kendine güvenen, akıl ve iradesini doğru kullanabilen, sorunları doğru anlama ve çözebilme yeteneğine sahip, sorumluluk bilinci yüksek, milli ve evrensel değerleri kaynaştırabilen, en önemlisi de geleceğe yönelik idealleri ve hayalleri olan bir nesil yetiştirmenin sevdasını taşıyoruz.</p>
+    <br><br>
+    <p  style="font-size: larger">Bu düşünceye sahip her biri Sivas'ımızın yakından tanıdığı, kişiliği, ve mesleki kariyeriyle kendini ispatlamış seçkin öğretmenlerden oluşan bir kurucu kadroyuz. Bu idealimizi gerçekleştirmek için siz değerli velililerimizle el ele, gönül gönüle bu fidanlarımızı yetiştirmek istiyoruz.
+
+    </p>
+</div>
+
+<footer style="background-color: #1c1c1b; position: relative ">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+                <h5 class="mb-3" style="letter-spacing: 2px; color: #818963;">İLETİŞİM</h5>
+                <p style="font-size: larger; color: #deded5">0 346 221 66 66</p>
+                <p  style="font-size: larger; color: #deded5">0346 235 05 58</p>
+                <P  style="font-size: larger; color: #deded5">info@sivasbatikoleji.com</P>
+                <P  style="font-size: larger; color: #deded5"> Esenyurt Mahallesi Güzide Sokak No:1 / SİVAS</P>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="mb-1" style="letter-spacing: 2px; color: #818963;">SAATLER</h5>
+                <table class="table" style="color: #4f4f4f; border-color: #666;">
+                    <tbody>
+                        <tr>
+                            <td  style="font-size: larger; color: #deded5">PAZARTESİ - CUMARTESİ:</td>
+                            <td   style="font-size: larger; color: #deded5">08.00 - 17.00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: larger; color: #deded5">PAZAR</td>
+                            <td style="font-size: larger; color: #deded5">KAPALI</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+    <title>Anasayfa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+
+</head>
+<body style="background-color: gray">
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Anasayfa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/index">Admin Paneli <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/studentlist">Öğrenci Listele <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/contact">İletişim <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/rektor">Rektör <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/bolum">Bilgisayar Mühendisliği <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/logout">Çıkış  <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="row" style="width: 100% ; padding: 3%">
+        <div class="col-lg-6 text-center" style="" >
+            <img style="width: 80%" src="https://sozgazetesi.com.tr/wp-content/themes/enginhaber/images/kullanici.jpg">
+        </div>
+        <div class="col-lg-6" style="   ">
+            <div class="card" style="width: 18rem;" th:each="student: ${listStudent}">
+                <div class="card-body">
+                    <h5 class="card-title"th:text="${student.name} + ' ' + ${student.surname}">Card title</h5>
+                    <p class="card-text" th:text="${student.surname}" >asf</p>
+                    <p class="card-text" th:text="${student.number}" >asf</p>
+                   <!-- <p class="card-text" th:text="${student.devam}" >asf</p>
+                --></div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="background-color: #deded5; position: relative ">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4">
+                    <h5 class="mb-3" style="letter-spacing: 2px; color: #818963;">İletişim</h5>
+                    <p>
+                        Sivas Cumhuriyet Üniversitesi
+                        Mühendislik Fakültesi
+                        Bilgisayar Mühendisliği Bölümü
+                        Kat:2 58140    Kampüs / SİVAS
+                    </p>
+                    <p>0 346 219 1010 / 2473 
+                        (Bölüm Sekreterliği / Öğrenci İşleri</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3" style="letter-spacing: 2px; color: #818963;">Linkler</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1">
+                            <a href="https://www.cumhuriyet.edu.tr" style="color: #4f4f4f;">Cumhuriyet Üniversitesi</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="https://twitter.com/cumunivkurumsal?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" style="color: #4f4f4f;">Twitter</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="https://www.instagram.com/cumunivkurumsal/?hl=tr" style="color: #4f4f4f;">İnstagram</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-1" style="letter-spacing: 2px; color: #818963;">Saatler</h5>
+                    <table class="table" style="color: #4f4f4f; border-color: #666;">
+                        <tbody>
+                            <tr>
+                                <td>Mon - Fri:</td>
+                                <td>08.00 - 17.00</td>
+                            </tr>
+                            <tr>
+                                <td>Sat - Sun:</td>
+                                <td>Kapalı</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+</div>
+</body>
+</html>

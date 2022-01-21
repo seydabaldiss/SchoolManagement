@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+    <title>Öğrenci Liste</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+</head>
+<body style="background: #FA6A20">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Anasayfa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/index">ADMİN PANELİ<span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/studentlist">ÖĞRENCİ LİSTESİ<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/contact">İLETİŞİM <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/rektor">KURUCUMUZ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/bolum">KADROMUZ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/logout">ÇIKIŞ <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+<div style="padding-left: 40%; padding-top: 2%">
+    <h1>ÖĞRENCİ LİSTESİ</h1>
+</div>
+
+<div>
+    <div style="padding-top: 5%; padding-left: 10%; padding-right: 10%">
+        <table class="table table-bordered" style="background-color: white">
+            <thead>
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>ADI</th>
+                    <th>SOYADI</th>
+                    <th>NUMARA</th>
+                    <th>OKUNAN KİTAP SAYISI</th>
+                    <th>DEVAMSIZLIK</th>
+                    <th>ÖĞRENCİ İŞLEMLERİ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" th:each="student: ${listStudent}">
+                    <td th:text="${student.id}">User ID</td>
+                    <td th:text="${student.name}">User Enabled</td>
+                    <td th:text="${student.surname}">User username</td>
+                    <td th:text="${student.number}">Number</td>
+                    <td th:text="${student.read_books}">Read Books</td>
+                    <td th:text="${student.devam}">Devamsızlık</td>
+                    <!--<td th:text="${student.devam}">User Password</td>
+                    --><td sec:authorize="hasAnyAuthority('ADMIN')">
+            <div sec:authorize="hasAnyAuthority('ADMIN')">
+                <a class="btn btn-info" th:href="@{'/editOgrenci/' + ${student.id}}">Güncelle</a>
+                <a class="btn btn-danger" th:href="@{'/deleteStudent/' + ${student.id}}">Sil</a>
+            </div>
+
+            </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

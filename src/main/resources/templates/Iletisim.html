@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Anasayfa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/index">ADMİN PANELİ <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/studentlist">ÖĞRENCİ LİSTESİ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/contact">İLETİŞİM <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/rektor">KURUCUMUZ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/bolum">KADROMUZ  <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/logout">ÇIKIŞ  <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+<div style="padding-left: 40%; padding-top: 2%">
+    <h1>İLETİŞİM SAYFASI</h1>
+</div>
+<form style="padding-top: 3%; padding-left: 20%; padding-right: 20%">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">AD</label>
+        <input type="text" class="form-control" placeholder="Adınız">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">SOYAD</label>
+        <input type="text" class="form-control" placeholder="Soyadınız">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">KULLANICI ADI</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Kullanıcı Adınız">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">MESAJ</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Mesajınız"></textarea>
+    </div>
+    <div style="margin-left: 50%">
+        <button  style="width: 100px; height: 30px" type="submit" class="btn btn-primary mb-2">GÖNDER</button>
+    </div>
+</form>
+<div style="padding-top: 6%">
+    <footer style="background-color: #171716;">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4">
+                    <h5 class="mb-3" style="letter-spacing: 2px; color: #818963;">İLETİŞİM</h5>
+                    <p style="font-size: larger; color: #deded5">0 346 221 66 66</p>
+                    <p  style="font-size: larger; color: #deded5">0346 235 05 58</p>
+                    <P  style="font-size: larger; color: #deded5">info@sivasbatikoleji.com</P>
+                    <P  style="font-size: larger; color: #deded5"> Esenyurt Mahallesi Güzide Sokak No:1 / SİVAS</P>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-1" style="letter-spacing: 2px; color: #818963;">SAATLER</h5>
+                    <table class="table" style="color: #4f4f4f; border-color: #666;">
+                        <tbody>
+                        <tr>
+                            <td  style="font-size: larger; color: #deded5">PAZARTESİ - CUMARTESİ:</td>
+                            <td   style="font-size: larger; color: #deded5">08.00 - 17.00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: larger; color: #deded5">PAZAR</td>
+                            <td style="font-size: larger; color: #deded5">KAPALI</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+</div>
+</body>
+</html>

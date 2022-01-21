@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+</head>
+<body  style="background: #6BFA8D" >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Anasayfa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/index">ADMİN  PANELİ <span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/studentlist">ÖĞRENCİ LİSTESİ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/contact">İLETİŞİM <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/rektor">KURUCUMUZ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/bolum">KADROMUZ  <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/logout">ÇIKIŞ  <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+<div>
+    <div align="center">
+        <h1>ÖĞRENCİ GÜNCELLEME</h1>
+        <br />
+        <form action="#" th:action="@{/save1}" th:object="${student}"
+              method="post">
+            <table border="0">
+                <tr>
+                    <td>KULLANICI ID</td>
+                    <td><input class="form-control" type="text" th:field="*{id}" readonly="readonly" />
+                </td>
+                </tr>
+                <tr>
+                    <td>ADI</td>
+                    <td><input class="form-control" type="text" th:field="*{name}" /></td>
+                </tr>
+                <tr>
+                    <td>SOYAD</td>
+                    <td><input class="form-control" type="text" th:field="*{surname}" /></td>
+                </tr>
+                <tr>
+                    <td>NUMARA</td>
+                    <td><input class="form-control" type="number" th:field="*{number}" /></td>
+                </tr>
+                <tr>
+                    <td>OKUNAN KİTAP SAYISI</td>
+                    <td><input class="form-control" type="number" th:field="*{read_books}" /></td>
+                </tr>
+                <tr>
+                     <td>DEVAMSIZLIK </td>
+                     <td><input class="form-control" type="number" th:field="*{devam}" /></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-info" type="submit">GÜNCELLE</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+    <title>Kadromuz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+    <style>
+        .col-lg-4{
+            margin-top: 1%;
+            margin-bottom: 1%
+        }
+    </style>
+</head>
+<body style="background: lightblue">
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Anasayfa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/index">ADMİN PANELİ <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link" href="/studentlist">ÖĞRENCİ LİSTELE <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/contact">İLETİŞİM <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/rektor">KURUCUMUZ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/bolum">KADROMUZ  <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/logout">ÇIKIŞ  <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div><br>
+<h2 style="text-align: center">KADROMUZ </h2>
+
+<div class="row mt-5 " style="width: 100%">
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+
+    </div>
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+        <div class=" card text-center w-50" style="background-color: #EEEBDD">
+            <img style="align-self: center" class="card-img-top w-100" src="https://www.sivasbatikoleji.com/resimler/kisiler/hakan-genc.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">HAKAN GENÇ </h5>
+                    <h6>Yönetim Kurulu Başkanı</h6>
+                    <p>Matematik</p>
+
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+
+    </div>
+
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+        <div class=" card text-center w-50 " style="background-color: #EEEBDD">
+            <img style="align-self: center" class="card-img-top w-100" src="https://www.sivasbatikoleji.com/resimler/kisiler/mehmet%20ertan%20matematik-5aaf769774aa6.jpg
+                 " alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">MEHMET ERTAN </h5>
+                    <h6>Matematik - Geometri</h6>
+                    <p>	Batı İlköğretim Okul Müdürü</p>
+
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-3 " style="display: flex;justify-content: center">
+        <div class=" card text-center w-50 " style="background-color: #EEEBDD">
+            <img style="align-self: center" class="card-img-top w-100" src="https://www.sivasbatikoleji.com/resimler/kisiler/514009258.jpg
+                 " alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">H. SERMİN ERGÜLER</h5>
+                    <h6>Kimya</h6>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+        <div class=" card text-center w-50" style="background-color: #EEEBDD">
+            <img src="https://www.sivasbatikoleji.com/resimler/kisiler/809079351.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">EMRE TETİKER </h5>
+                    <p>Matematik</p>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+        <div class=" card text-center w-50 " style="background-color: #EEEBDD">
+            <img style="align-self: center" class="card-img-top w-100" src="https://www.sivasbatikoleji.com/resimler/kisiler/947624759.jpg
+                 " alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">BİLAL ULUCAK</h5>
+                    <p>	Türk Dili Ve Edebiyatı</p>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+        <div class=" card text-center w-50 " style="background-color: #EEEBDD">
+            <img style="align-self: center" class="card-img-top w-100" src="https://www.sivasbatikoleji.com/resimler/kisiler/ismail-icoz-5f607ee712224.jpg
+                 " alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">İSMAİL İÇÖZ</h5>
+                    <p>Kimya</p>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+        <div class=" card text-center w-50" style="background-color: #EEEBDD">
+            <img src="https://www.sivasbatikoleji.com/resimler/kisiler/250984971.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">ALİ CANPOLAT</h5>
+                    <p>	 Biyoloji</p>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+        <div class=" card text-center w-50 " style="background-color: #EEEBDD">
+            <img style="align-self: center" class="card-img-top w-100" src="https://www.sivasbatikoleji.com/resimler/kisiler/568739273.jpg
+                 " alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">MEHMET YİĞİT </h5>
+                    <p>	Felsefe Grubu Öğretmeni</p>
+                    <p>Eğitim Kordinatörü</p>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+        <div class=" card text-center w-50 " style="background-color: #EEEBDD">
+            <img style="align-self: center" class="card-img-top w-100" src="https://www.sivasbatikoleji.com/resimler/kisiler/24235815.jpg
+                 " alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">MURAT HASBEK</h5>
+                    <p>	Kimya</p>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-4 " style="display: flex;justify-content: center">
+        <div class=" card text-center w-50" style="background-color: #EEEBDD">
+            <img src="https://www.sivasbatikoleji.com/resimler/kisiler/tacettin-dokmetas.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">TACETTİN DÖKMETAŞ</h5>
+                    <p>	Kurucu Ortak</p>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+<footer style="background-color: #131313;">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+                <h5 class="mb-3" style="letter-spacing: 2px; color: #818963;">İLETİŞİM</h5>
+                <p style="font-size: larger; color: #deded5">0 346 221 66 66</p>
+                <p  style="font-size: larger; color: #deded5">0346 235 05 58</p>
+                <P  style="font-size: larger; color: #deded5">info@sivasbatikoleji.com</P>
+                <P  style="font-size: larger; color: #deded5"> Esenyurt Mahallesi Güzide Sokak No:1 / SİVAS</P>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="mb-1" style="letter-spacing: 2px; color: #818963;">SAATLER</h5>
+                <table class="table" style="color: #4f4f4f; border-color: #666;">
+                    <tbody>
+                        <tr>
+                            <td  style="font-size: larger; color: #deded5">PAZARTESİ - CUMARTESİ:</td>
+                            <td   style="font-size: larger; color: #deded5">08.00 - 17.00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: larger; color: #deded5">PAZAR</td>
+                            <td style="font-size: larger; color: #deded5">KAPALI</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</footer>
+</body>
+</html>
